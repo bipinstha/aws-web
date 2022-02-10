@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSV to JSON Converter</title>
+</head>
+<body>
+    <div>
+        <div id="msg"></div>
+        <h4>Convert CSV to JSON</h4>
+        <form autocomplete="off" action="">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="sourceId" name="sourceId" required placeholder="Source Id"/>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="version" name="version" required placeholder="Version"/>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="input-group">
+                        <input type="file" name="file" id="uploadFile" class="form-control"/>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="input-group">
+                        <input type="button" name="submit" value="Submit" onclick="$csvToJsonControl.onSubmitCsvFile()" class="btn-primary"/>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <h6>Raw response</h6>
+                <div class="input-group">
+                    <textarea class="form-control" id="rawResponse"></textarea>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <h6>Beautified response</h6>
+                <div class="input-group">
+                    <div class="form-control json-render-area" id="beautifiedResponse"></div>
+                </div>
+            </div>
+        </div>
+</div>
+</body>
+</html>
