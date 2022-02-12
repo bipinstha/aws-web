@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JSON Path Expression</title>
+</head>
+<body>
+    <div>
+        <div id="msg"></div>
+        <form autocomplete="off" action="">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="input-group autocomplete">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Expression</span>
+                        </div>
+                        <input type="text" onkeyup="$jsonExpressionControl.onExpressionChange()" class="form-control" id="jsonExpression" name="expression" placeholder="Expression">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="input-group">
+                        <!--<div class="form-control json-render-area" id="beautifiedResponse"></div>-->
+                        <textarea class="form-control json-render-area" id="beautifiedResponse" onchange="$jsonExpressionControl.onAddJsonValue()"></textarea>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="input-group">
+                        <textarea class="form-control json-render-area" id="afterAppliedExpression"></textarea>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div>
+            <a target="_blank" href="https://docs.oracle.com/cd/E60058_01/PDF/8.0.8.x/8.0.8.0.0/PMF_HTML/JsonPath_Expressions.htm">Need help on <b>json path expression</b></a>
+        </div>
+    </div>
+</body>
+</html>

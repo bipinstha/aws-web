@@ -11,16 +11,16 @@ let $uiControls = (function() {
             'link': '#/dashboard'
         },
         {
-            'page': 'Whiteboard Calc',
-            'link': '#/whiteboardCalc'
+            'page': 'JSON Path Expression',
+            'link': '#/jsonPathExpression'
         },
         {
             'page': 'CSV to JSON',
             'link': '#/csvToJSON'
         },
         {
-            'page': 'Third Menu Item',
-            'link': '#/thirdMenuItem'
+            'page': 'Regex 101',
+            'link': '#/regex101'
         },
         {
             'page': 'Fourth Menu Item',
@@ -97,16 +97,21 @@ let $uiControls = (function() {
 
     }
 
-    function loadHTML(urlPath, callback) {
+    function loadHTML(urlPath, requestHeader, callback) {
         let xObj = new XMLHttpRequest();
         xObj.overrideMimeType("plain/text");
         xObj.callback = callback
         xObj.open('GET', urlPath);
+        if(requestHeader) {
+            Object.keys(requestHeader).forEach(key => {
+                xObj.setRequestHeader(key, requestHeader[key])
+            });
+        }
         xObj.onload = handleResponse;
         xObj.send();
     }
 
-    function handleResponse (request, ) {
+    function handleResponse (request) {
         if (request.target.status == 200) {
             let response = request.target.response;
            request.target.callback(response)
@@ -132,8 +137,8 @@ let $uiControls = (function() {
             removeAllChildNodes(parentNode);
         },
 
-        loadHTMLFile: function(qualifiedFileName, callBack) {
-            loadHTML(qualifiedFileName, callBack);
+        loadHTMLFile: function(qualifiedFileName, requestHeader, callBack) {
+            loadHTML(qualifiedFileName, requestHeader, callBack);
         },
 
         startLoadingSpinner: function() {

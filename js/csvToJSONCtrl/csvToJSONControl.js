@@ -8,7 +8,7 @@ let $csvToJsonControl = (function() {
 
     async function loadControls() {
         // $content.innerText = await fetchHtmlAsText(HTML_FILE_NAME);
-        $uiControls.loadHTMLFile(HTML_FILE_NAME, function (response){
+        $uiControls.loadHTMLFile(HTML_FILE_NAME, null,function (response){
             $content.innerHTML = response;
         });
     }
@@ -65,10 +65,6 @@ let $csvToJsonControl = (function() {
 
         onSubmitCsvFile: function () {
             console.log('submit clicked')
-            let sourceId = document.getElementById('sourceId').value;
-            let version = document.getElementById('version').value;
-            outputWhiteboard.sourceId = sourceId;
-            outputWhiteboard.version = version;
             console.log(outputWhiteboard);
             try {
                 let uploadedFile = document.getElementById("uploadFile").files[0];

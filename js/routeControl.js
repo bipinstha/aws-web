@@ -9,11 +9,14 @@ let $routeControl = (function() {
             case '/dashboard':
                 $mainControl.init();
                 break;
-            case '/whiteboardCalc':
-                $whiteboardControl.init();
+            case '/jsonPathExpression':
+                $jsonExpressionControl.init();
                 break;
             case '/csvToJSON':
                 $csvToJsonControl.init();
+                break;
+            case '/regex101':
+                new Regex101Control().init();
                 break;
             default:
                 $mainControl.init();
